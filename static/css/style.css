@@ -543,3 +543,134 @@ form {
         transform: translateX(0);
     }
 }
+
+/* Card entrance animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-card {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Modal animation */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal:not(.hidden) {
+    animation: modalFadeIn 0.2s ease;
+}
+
+.modal:not(.hidden) .modal-content {
+    animation: modalSlideIn 0.3s ease;
+}
+
+/* Timer display styling */
+.timer-display {
+    font-family: 'Courier New', Consolas, monospace;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Drag placeholder */
+.drag-placeholder {
+    height: 80px;
+    background: var(--background);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.action-btn:focus,
+.modal-close:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+.task-list::-webkit-scrollbar,
+.time-entries::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-list::-webkit-scrollbar-track,
+.time-entries::-webkit-scrollbar-track,
+.modal-content::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+.task-list::-webkit-scrollbar-thumb,
+.time-entries::-webkit-scrollbar-thumb,
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover,
+.time-entries::-webkit-scrollbar-thumb:hover,
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Disable text selection during drag */
+.board.dragging {
+    user-select: none;
+}
+
+/* Status badge colors */
+.status-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.todo {
+    background: var(--todo-color);
+    color: var(--text-secondary);
+}
+
+.status-badge.in_progress {
+    background: rgba(74, 144, 217, 0.15);
+    color: var(--progress-color);
+}
+
+.status-badge.waiting {
+    background: rgba(255, 193, 7, 0.15);
+    color: #856404;
+}
+
+.status-badge.done {
+    background: rgba(40, 167, 69, 0.15);
+    color: var(--done-color);
+}
